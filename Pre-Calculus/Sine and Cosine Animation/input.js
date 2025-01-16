@@ -25,7 +25,8 @@ function mouseHovering() {
   }
   // Hovering over cosine graph
   if (0 < mouseY && mouseY <= canvasSide - circleCenter*2 && 0 < mouseX && mouseX < circleCenter*2) {
-    hoverAngle = (-mouseY+canvasSide-circleCenter*2)/(canvasSide*(1-circleGraphRatio))*revolution
+    // hoverAngle = (mouseY+canvasSide-circleCenter*2)/(canvasSide*(1-circleGraphRatio))*revolution
+    hoverAngle = (mouseY)/(canvasSide*(1-circleGraphRatio))*revolution
     line(0, mouseY, circleCenter*2, mouseY)
   }
   // Hovering over circle

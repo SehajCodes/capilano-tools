@@ -13,8 +13,8 @@ function setup() {
   pointsDiameter = circleCenter*0.1
 
   // Set units of angles as degrees or radians (affects display angles and all under-the-hood calculations as well)
-  anglesUnits = DEGREES 
-  // anglesUnits = RADIANS
+  // anglesUnits = DEGREES 
+  anglesUnits = RADIANS
 
   angleMode(anglesUnits)
 
