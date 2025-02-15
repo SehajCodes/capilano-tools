@@ -15,24 +15,24 @@ function mouseHovering() {
   positionLine = []
   // fill(hoverClr)
   // Hovering over sine graph
-  if (circleCenter*2 < mouseX && mouseX <= canvasSide && canvasSide - circleCenter*2 < mouseY && mouseY < canvasSide) {
+  if (circleCenter*2 + (canvasSide*(1-circleGraphRatio)*(1-circleGraphScale)/2) < mouseX && mouseX <= canvasSide - (canvasSide*(1-circleGraphRatio)*(1-circleGraphScale)/2) && canvasSide - circleCenter*2 < mouseY && mouseY < canvasSide) {
     // console.log(mouseX)
     // rect(100, 100, 100, 100)
-    hoverAngle = (mouseX-circleCenter*2)/(canvasSide*(1-circleGraphRatio))*revolution
+    hoverAngle = ((mouseX-circleCenter*2)-(canvasSide*(1-circleGraphRatio)/2)*(1-circleGraphScale))/(canvasSide*(1-circleGraphRatio)*circleGraphScale)*revolution
     // strokeWeight(strokeVal/2)
     // stroke(hoverClr)
     line(mouseX, canvasSide-circleCenter*2, mouseX, canvasSide)
   }
   // Hovering over cosine graph
-  if (0 < mouseY && mouseY <= canvasSide - circleCenter*2 && 0 < mouseX && mouseX < circleCenter*2) {
+  if ((canvasSide*(1-circleGraphRatio)*(1-circleGraphScale)/2) < mouseY && mouseY <= canvasSide - circleCenter*2 - (canvasSide*(1-circleGraphRatio)*(1-circleGraphScale)/2) && 0 < mouseX && mouseX < circleCenter*2) {
     // hoverAngle = (mouseY+canvasSide-circleCenter*2)/(canvasSide*(1-circleGraphRatio))*revolution
-    hoverAngle = (mouseY)/(canvasSide*(1-circleGraphRatio))*revolution
+    hoverAngle = (mouseY-(canvasSide*(1-circleGraphRatio)/2*(1-circleGraphScale)))/(canvasSide*(1-circleGraphRatio)*circleGraphScale)*revolution
     line(0, mouseY, circleCenter*2, mouseY)
   }
   // Hovering over circle
   distanceFromCenter = sqrt((mouseX-circleCenter)**2+(mouseY-(canvasSide-circleCenter))**2)
   // console.log(distanceFromCenter)
-  if (distanceFromCenter < circleCenter) {
+  if (distanceFromCenter < circleRadius) {
     hoverRadius = distanceFromCenter*2
     // Quad I
     referenceAngle = abs(atan((mouseY-(canvasSide-circleCenter))/(circleCenter-mouseX)))
