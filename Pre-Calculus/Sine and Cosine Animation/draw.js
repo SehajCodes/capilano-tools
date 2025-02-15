@@ -64,7 +64,7 @@ function drawGraphs() {
   text("X", (circleCenter*2)-(unit*23), ((((1-circleGraphRatio)*canvasSide)*(1-circleGraphScale))/2)+(unit*35))
   text("θ", circleCenter+(unit*15), canvasSide-(circleCenter*2)-(unit*10))
   text("Y", (circleCenter*2)+((((1-circleGraphRatio)*canvasSide)*(1-circleGraphScale))/2)+(unit*10), canvasSide-(circleCenter*2)+(unit*25))
-  text("θ", canvasSide-(unit*15), canvasSide-circleCenter-(unit*10))
+  text("θ", canvasSide-(unit*20), canvasSide-circleCenter-(unit*10))
 }
 
 function drawAnglesMarkings() {
@@ -126,16 +126,19 @@ function drawCurrent() {
 function drawInstructions() {
   fill(0)
 
-  text("Press R key to display radians\nPress D key to display degrees", circleCenter*2+circleCenter/3, canvasSide*(1-circleGraphRatio)*0.28)
+  text("Press \"R\" key to display radians\nPress \"D\" key to display degrees", circleCenter*2+circleCenter/3, canvasSide*(1-circleGraphRatio)*0.3)
 
   text("Try hovering your mouse over\nthe circle or one of the graphs!", circleCenter*2+circleCenter/3, canvasSide*(1-circleGraphRatio)*0.78)
+  
+  textSize(canvasSide/40)
+  text(" Made by Sehajdeep Singh", circleCenter*2.15+circleCenter/3, canvasSide*(1-circleGraphRatio)*0.05)
+  textSize(canvasSide/36)
 
-  text("Made by Sehajdeep Singh", circleCenter*2+circleCenter/3, canvasSide*(1-circleGraphRatio)*0.1)
 }
 
 function drawSlider() {
-  text("Revolutions per second: "+slider.value(), circleCenter*2+circleCenter/4, canvasSide*(1-circleGraphRatio)*0.58)
+  text("Revolutions per second: "+slider.value(), circleCenter*2+circleCenter/4, canvasSide*(1-circleGraphRatio)*0.52)
   slider.value(revolutionsPerSecond)
-  slider.position((windowWidth-canvasSide)/2+circleCenter*2+circleCenter/4, canvasSide*(1-circleGraphRatio)*0.6)
+  slider.position((windowWidth-canvasSide)/2+circleCenter*2+circleCenter/4, canvasSide*(1-circleGraphRatio)*0.56)
   slider.size(canvasSide*(1-circleGraphRatio)-circleCenter/2)
 }
